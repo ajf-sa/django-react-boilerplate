@@ -1,0 +1,48 @@
+version: '3.6'
+
+services:
+
+    djangoreact:
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      expose:
+        - "80"                                                                                                              
+      restart: always
+      container_name: djangoreact01
+      hostname: djangoreact   
+      networks:
+        - default
+
+    db:
+      image: postgres:11.1
+      restart: always
+      ports:
+        - "5432:5432"
+      networks:
+        - default
+      volumes:
+        - pgdata:/var/lib/postgresql/data/
+    
+    nginx:
+      container_name: nginx01
+      restart: always
+      build:
+        context: ./nginx
+        dockerfile: Dockerfile
+      networks:
+        - default
+      depends_on:
+        - djangoreact
+      links:
+        - djangoreact:djangoreact
+      ports:
+        - 80:80
+      networks:
+        - default
+        
+volumes:
+  pgdata:
+  
+networks:
+  default:
