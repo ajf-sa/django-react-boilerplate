@@ -11,7 +11,13 @@
 
 
 
+# dev
 
+    npm run start
+
+# production
+
+    npm run build
 # docker 
 
     docker-compose  -f .\docker-compose-local.yml build
