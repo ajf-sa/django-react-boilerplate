@@ -18,7 +18,7 @@ urlpatterns = [
 urlpatterns = urlpatterns + [
 
     re_path(r'(?P<path>.*)', TemplateView.as_view(
-        template_name="base.html"),
+        template_name="index.html"),
         name='base-home')
 
 ]
