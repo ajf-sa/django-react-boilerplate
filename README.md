@@ -6,7 +6,8 @@
     # change .env.example to .env
     pipenv shell
     pipenv install
-    
+    pipenv install --dev
+
 
 
 
