@@ -1,6 +1,14 @@
 # django-react-boilerplate
 
 
+    git clone git@github.com:alfuhigi/django-react-boilerplate.git
+    cd django-react-boilerplate
+    # change .env.example to .env
+    pipenv shell
+    pipenv install
+    
+
+
 
 
 # docker 
