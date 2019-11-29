@@ -17,7 +17,12 @@ from django.utils.html import escape
 from django.utils.translation import gettext, gettext_lazy as _
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
+
+from .forms import CustomUserChangeForm, CustomUserCreationForm
+
 from .models import User
+
+
 csrf_protect_m = method_decorator(csrf_protect)
 sensitive_post_parameters_m = method_decorator(sensitive_post_parameters())
 
@@ -40,8 +45,8 @@ class UserAdmin(admin.ModelAdmin):
             'fields': ('password1', 'password2'),
         }),
     )
-    form = UserChangeForm
-    add_form = UserCreationForm
+    form = CustomUserChangeForm
+    add_form = CustomUserCreationForm
     change_password_form = AdminPasswordChangeForm
     list_display = ('phone', 'email', 'is_active', 'is_staff',
                     'email_confirmed', 'phone_confirmed')
