@@ -13,6 +13,7 @@ admin.site.site_title = config('SITE_TITLE')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/account/', include('users.urls', 'users')),
 ]
 
 urlpatterns = urlpatterns + [
